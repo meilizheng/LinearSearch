@@ -10,14 +10,64 @@
 
             Preload();
 
-            foreach (var employee in employees)
+            Console.WriteLine("Contains");
+            string searchDepartment = "Marketing";
+            if(ContainsDepartment(employeeDepartment, searchDepartment))
             {
-                Console.WriteLine(employee);
+                Console.WriteLine($"{searchDepartment} includ in employeeDepartment List.");
             }
+            else
+            {
+                Console.WriteLine($"{searchDepartment} doesn't includ in employeeDepartment List.");
+            }
+
+            //foreach (var employee in employees)
+            //{
+            //    Console.WriteLine(employee);
+            //}
         }
 
+        public static bool ContainsDepartment(string[] departmentList, string searchKey)
+        {
+            foreach (string employee in departmentList)
+            {
+                if (employee == searchKey)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         static void Preload()
         {
+            employeeDepartment = new string[]
+            {
+                "Marketing",
+                "Human Resources",
+                "Finance",
+                "IT",
+                "Operations",
+                "Sales",
+                "Customer Service",
+                "Research and Development",
+                "Legal",
+                "Administration"
+            };
+
+            employeePosition = new string[]
+            {
+                "Manager",
+                "HR Specialist",
+                "Accountant",
+                "Software Engineer",
+                "Operations Manager",
+                "Sales Representative",
+                "Customer Support Agent",
+                "Research Scientist",
+                "Legal Counsel",
+                "Administrative Assistant"
+            };
+
             employees = new Employee[]
             {
                 new Employee("John Doe", "Marketing", "Manager"),
