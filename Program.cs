@@ -1,4 +1,4 @@
-﻿namespace LinearSearch   //nameSpace
+﻿namespace LinearSearch   //nameSpace  //Meili Zheng CSI260
 {
     internal class Program  //class
     {
