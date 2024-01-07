@@ -10,21 +10,12 @@
 
             Preload();
 
-            Console.WriteLine("Contains");
-            string searchDepartment = "Marketing";
-            if(ContainsDepartment(employeeDepartment, searchDepartment))
-            {
-                Console.WriteLine($"{searchDepartment} includ in employeeDepartment List.");
-            }
-            else
-            {
-                Console.WriteLine($"{searchDepartment} doesn't includ in employeeDepartment List.");
-            }
+            Contains();
 
-            //foreach (var employee in employees)
-            //{
-            //    Console.WriteLine(employee);
-            //}
+            Console.WriteLine("Employee By Position");
+            Console.WriteLine((employeeByPosition(employeePosition, "Accountant")));
+            Console.WriteLine((employeeByPosition(employeePosition, "CEO")));
+
         }
 
         public static bool ContainsDepartment(string[] departmentList, string searchKey)
@@ -38,6 +29,33 @@
             }
             return false;
         }
+
+        public static void Contains()
+        {
+            Console.WriteLine("Contains");
+            string searchDepartment = "Marketing";
+            if (ContainsDepartment(employeeDepartment, searchDepartment))
+            {
+                Console.WriteLine($"true. {searchDepartment} includ in employeeDepartment List.");
+            }
+            else
+            {
+                Console.WriteLine($"false. {searchDepartment} doesn't includ in employeeDepartment List.");
+            }
+        }
+
+        public static int employeeByPosition(string[] positionList, string searchKey)
+        {
+            for (int i = 0; i < positionList.Length; i++)
+            {
+                if (positionList[i] == searchKey)
+                {
+                    return i;
+                }    
+            }
+            return -1;
+        }
+
         static void Preload()
         {
             employeeDepartment = new string[]
@@ -76,7 +94,7 @@
                 new Employee("Sara Miller", "IT", "Software Engineer"),
                 new Employee("David Williams", "Operations", "Operations Manager"),
                 new Employee("Emily Davis", "Sales", "Sales Representative"),
-                new Employee("Michael Brown", "Customer Service", "Customer Support Agent"),
+                new Employee("Michael Brown", "IT", "Software Engineer"),
                 new Employee("Olivia Moore", "Research and Development", "Research Scientist"),
                 new Employee("Daniel Taylor", "Legal", "Legal Counsel"),
                 new Employee("Grace Turner", "Administration", "Administrative Assistant")
