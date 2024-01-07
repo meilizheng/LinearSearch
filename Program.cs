@@ -3,6 +3,8 @@
     internal class Program
     {
         static Employee[] employees;
+        static string[] employeeDepartment;
+        static string[] employeePosition;
         static void Main(string[] args)
         {
 
