@@ -16,6 +16,15 @@
             Console.WriteLine((employeeByPosition(employeePosition, "Accountant")));
             Console.WriteLine((employeeByPosition(employeePosition, "CEO")));
 
+            Console.WriteLine("All Employees of a Department");
+            Console.WriteLine(AllEmployeeOfDepartment(employeeDepartment, "IT").Count);
+            Console.WriteLine(AllEmployeeOfDepartment(employeeDepartment, "Payroll").Count);
+
+            Console.WriteLine("All Employees of Positon");
+            List<Employee> result = AllEmployeeOfPosition(employees, "Software Engineer");
+            Console.WriteLine(result.Count);
+            foreach (Employee employee in result) { Console.WriteLine($"{employee.Name} - {employee.Position}"); }
+            Console.WriteLine(AllEmployeeOfPosition(employees, "Payroll").Count);
         }
 
         public static bool ContainsDepartment(string[] departmentList, string searchKey)
@@ -54,6 +63,32 @@
                 }    
             }
             return -1;
+        }
+
+        public static List<int> AllEmployeeOfDepartment(string[] employeeList, string searchKey)
+        {
+            List<int> result = new List<int>();
+            for(int i = 0; i < employeeList.Length; i++)
+            {
+                if (employeeList[i] == searchKey)
+                {
+                    result.Add(i);
+                }
+            }
+            return result;
+        }
+
+        public static List<Employee> AllEmployeeOfPosition(Employee[] employees, string searchKey)
+        {
+            List<Employee> employeeOfPosition = new List<Employee>();
+            foreach(Employee employee in employees)
+            {
+                if (employee.Position == searchKey)
+                {
+                    employeeOfPosition.Add(employee);
+                }
+            }
+            return employeeOfPosition;
         }
 
         static void Preload()
